@@ -1,0 +1,9 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Your plan | FitBuddy</title><link rel="stylesheet" href="/static/style.css"></head>
+<body><main class="shell"><header><a class="brand" href="/">FitBuddy<span>AI</span></a><a href="/view-all-users">Coach dashboard</a></header>
+{% if error %}<section class="panel"><h1>Plan not found</h1><p>{{ error }}</p><a class="primary inline" href="/">Back home</a></section>{% else %}
+<section class="hero compact"><div class="eyebrow">YOUR PERSONAL PLAN</div><h1>Let’s get moving, <em>{{ user.username }}.</em></h1><p>{{ user.goal }} · {{ user.intensity }} intensity · {{ user.age }} years · {{ user.weight }} kg</p></section>
+{% if updated %}<div class="notice">✓ Your plan has been updated using your feedback.</div>{% endif %}
+<section class="panel"><div class="section-head"><div><div class="eyebrow">7-DAY SCHEDULE</div><h2>{% if updated %}Updated workout plan{% else %}Your workout plan{% endif %}</h2></div><span class="pill">7 days</span></div><pre>{{ display_plan }}</pre></section>
+<section class="panel tip"><div class="eyebrow">NUTRITION / RECOVERY</div><h2>A little support goes a long way.</h2><p>{{ nutrition_tip }}</p></section>
+<section class="panel"><div class="eyebrow">MAKE IT YOURS</div><h2>Refine your plan</h2><p>Tell FitBuddy what you’d like to change.</p><form action="/submit-feedback" method="post"><input type="hidden" name="user_id" value="{{ user.user_id }}"><label for="feedback">Your feedback</label><textarea id="feedback" name="feedback" required minlength="3" maxlength="1000" placeholder="e.g. More cardio, add yoga, or include another rest day"></textarea><button class="primary" type="submit">Update my plan ↗</button></form></section>
+<a class="back" href="/">← Create another plan</a>{% endif %}<footer>Move at your own pace. <span>FitBuddy © 2026</span></footer></main></body></html>

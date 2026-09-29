@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FitBuddy | AI Fitness Planner</title><link rel="stylesheet" href="/static/style.css"></head>
+<body><main class="shell"><header><a class="brand" href="/">FitBuddy<span>AI</span></a><a href="/view-all-users">Coach dashboard</a></header>
+<section class="hero"><div class="eyebrow">YOUR PERSONAL FITNESS COMPANION</div><h1>Build a plan that<br><em>moves with you.</em></h1>
+<p>Get a personalized 7-day workout plan and a practical nutrition tip, tailored to your goal and preferred intensity.</p></section>
+<form class="panel form-grid" action="/generate-workout" method="post">
+<div class="field"><label for="username">Name</label><input id="username" name="username" required maxlength="120" placeholder="Your name"></div>
+<div class="field"><label for="user_id">User ID</label><input id="user_id" name="user_id" required maxlength="80" placeholder="e.g. kaviya01"></div>
+<div class="field"><label for="age">Age</label><input id="age" name="age" type="number" min="13" max="100" required placeholder="Years"></div>
+<div class="field"><label for="weight">Weight (kg)</label><input id="weight" name="weight" type="number" min="1" max="500" step="0.1" required placeholder="e.g. 60"></div>
+<div class="field"><label for="goal">Fitness goal</label><select id="goal" name="goal"><option>Weight loss</option><option>Muscle gain</option><option>General wellness</option><option>Flexibility</option></select></div>
+<div class="field"><label for="intensity">Workout intensity</label><select id="intensity" name="intensity"><option>Low</option><option selected>Medium</option><option>High</option></select></div>
+<button class="primary full" type="submit">Generate my 7-day plan <span>↗</span></button>
+<p class="fine full">Fitness guidance is general information, not medical advice. Choose a level appropriate for you.</p>
+</form><footer>Made for consistency, not perfection. <span>FitBuddy © 2026</span></footer></main></body></html>
